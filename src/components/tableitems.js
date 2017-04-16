@@ -32,8 +32,8 @@ class TableItems extends Component{
 			<div className="ingredbody">
 			<p className="ingredTitle">Ingredients:</p>
 			{eachIngred}
-			<button className="delete">Delete</button>
-			<button>Edit</button>
+			<button className="delete" onClick={()=>{this.props.delete(this.props.num);this.handleUnshow()}}>Delete</button>
+			<button onClick={()=>{this.props.editRecipe(this.props.num);this.handleUnshow()}}>Edit</button>
 			</div>
 			: null
 		}

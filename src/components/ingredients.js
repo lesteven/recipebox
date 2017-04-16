@@ -4,7 +4,7 @@ const Ingredients =(props)=>{
 	
 	return (
 	<div>
-		<p>{props.ingred}</p>
+		<p className="eachIngred">{props.ingred}</p>
 	</div>
 	)
 }

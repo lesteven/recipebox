@@ -1,14 +1,18 @@
 import React from 'react';
 import TableItems from './tableitems'
 
-const Table=({recipes})=>{
+const Table=(props)=>{
 	//Receives recipes array and map it out.
 	//Maps out <TableItems /> title with ingredients
 	//nested inside.
-	const recipeItem = recipes.map((each,index)=>{
+	const recipeItem = props.recipes.map((each,index)=>{
 		return(
-			< TableItems title={recipes[index].title} 
-			ingred={recipes[index].ingred} key={index}/>
+			< TableItems title={props.recipes[index].title} 
+			ingred={props.recipes[index].ingred} 
+			delete={props.delete}
+			editRecipe={props.editRecipe}
+			num={index}
+			key={index}/>
 		) 
 	})
 	return (
