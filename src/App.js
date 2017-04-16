@@ -52,7 +52,7 @@ class App extends Component {
     const arr = this.state.recipesArray.slice();
     arr.splice(key,1);
     this.setState({recipesArray:arr})
-    localStorage.setItem('recipes',JSON.stringify(this.state.recipesArray))
+
   }
   addRecipe(){
     const arr = this.state.recipesArray.slice();
@@ -65,8 +65,8 @@ class App extends Component {
     this.setState({recipesArray:arr,click:false,
         recipeTitle:'',recipeIngred:''})
 
-    const storage = localStorage.getItem('recipes');
-    console.log(JSON.parse(storage))
+    console.log(this.state.recipesArray)
+    
   }
   editRecipe(key){
     this.setState({edit:true})
@@ -89,11 +89,16 @@ class App extends Component {
   }
   componentWillMount(){
     const storage = localStorage.getItem('recipes');
-    localStorage.setItem('recipes',storage)
-    this.setState({recipesArray:JSON.parse(storage)})
+    if(storage==null){
+      localStorage.setItem('recipes',JSON.stringify(this.state.recipesArray))
+    }
+    else{
+      localStorage.setItem('recipes',storage)
+      this.setState({recipesArray:JSON.parse(storage)})
+    }
   }
   render() {
-
+  localStorage.setItem('recipes',JSON.stringify(this.state.recipesArray))
     return (
       <div className="App">
         {/* Gives recipes array to <Table/> */}
