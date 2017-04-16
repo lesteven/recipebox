@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-class Form extends Component{
+class EditForm extends Component{
 	//App is parent component
 
 	render(){
@@ -8,14 +8,14 @@ class Form extends Component{
 			<form>
 			<div className="recipeForm">
 				<textarea placeholder="Recipe Name" 
-				onChange={this.props.titleChange}
-				value={this.props.recipeTitle}>
+				onChange={this.props.updateTitle}
+				value={this.props.editTitle}>
 				</textarea>
-				<button type="button" className="add" onClick={this.props.addRecipe}>Add</button>
+				<button type="button" className="add" onClick={this.props.updateRecipe}>Edit</button>
 			</div>
 				<textarea className="ingred" 
-				onChange={this.props.ingredChange}
-				value={this.props.recipeIngred}
+				onChange={this.props.updateIngred}
+				value={this.props.editIngred}
 				placeholder="Ingredients separated by commas">
 				</textarea>
 			</form>
@@ -23,4 +23,5 @@ class Form extends Component{
 	}
 }
 
-export default Form;
+
+export default EditForm;
