@@ -77,12 +77,17 @@ class App extends Component {
     editIngred:element[0].ingred,editKey:key})
   }
   updateRecipe(){
+   
     this.setState({edit:false})
     const arr = this.state.recipesArray.slice();
-    arr.splice(this.state.editKey,1)
+    arr.splice(this.state.editKey,1);
+
+    let ingred = this.state.editIngred;
+    Array.isArray(ingred)? ingred = ingred.join().split(','): 
+    ingred=ingred.split(',');
     const add={
       'title': this.state.editTitle,
-      'ingred': this.state.editIngred.split(',')
+      'ingred': ingred
     }
     arr.splice(this.state.editKey,0,add)
     this.setState({recipesArray:arr})
